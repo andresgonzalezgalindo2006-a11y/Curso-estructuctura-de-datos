@@ -26,6 +26,8 @@ public class Ejercicio1 {
                 System.out.println("Suma de pares:" + sumaPar);
                 System.out.println("Suma de Impares:" + sumaImpar);
            
+                // forma.2 -> Declarando el arreglo y definiendo el tamaño
+                int[] b = new int[10];
                  
             
         }
