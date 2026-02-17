@@ -15,6 +15,10 @@ public class Estudiante {
         this.edad = edad;
     }
 
+    public Estudiante(){
+        
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -73,6 +77,6 @@ public class Estudiante {
     }
 
 
-    
+
 
 }
