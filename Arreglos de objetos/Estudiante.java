@@ -63,9 +63,6 @@ public class Estudiante {
 
         return suma / e.length;
 
-        
-
-
 
     }
 
@@ -74,5 +71,8 @@ public class Estudiante {
         return "Estudiante [nombre=" + nombre + ", semestre=" + semestre + ", programa=" + programa + ", notaPromedio="
                 + notaPromedio + ", edad=" + edad + "]";
     }
+
+
+    
 
 }
