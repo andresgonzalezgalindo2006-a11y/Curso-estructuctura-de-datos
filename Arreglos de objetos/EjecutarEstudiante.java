@@ -20,7 +20,7 @@ public class EjecutarEstudiante {
         }
 
         // promedio general de las notas de los estudiantes
-        double sumaNota = 0.0;
+        double s umaNota = 0.0;
         for( int i = 0; i < est.length; i++){
             sumaNota += est[i].getNotaPromedio();
         }
@@ -34,6 +34,9 @@ public class EjecutarEstudiante {
 
         // Uso del metodo calcularPromedio
         System.out.println(objE.calcularEdadPromedio(edades));
+
+
+        
         
 
        

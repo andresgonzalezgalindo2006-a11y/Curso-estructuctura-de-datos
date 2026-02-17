@@ -16,7 +16,7 @@ public class Estudiante {
     }
 
     public Estudiante(){
-        
+
     }
 
     public String getNombre() {
@@ -67,8 +67,22 @@ public class Estudiante {
 
         return suma / e.length;
 
+}
 
-    }
+        // metodo calcular nota promedio de los estudiantes de 3 semestre y a un progrmama academico
+        public double calcularPromedioNota3 ( int [] e){
+            if (semestre = 3) {
+            return = ;
+
+            } else {
+                
+            }
+
+
+        }
+
+
+    
 
     @Override
     public String toString() {
