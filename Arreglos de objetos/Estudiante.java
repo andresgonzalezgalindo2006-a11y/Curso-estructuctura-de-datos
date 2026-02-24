@@ -69,28 +69,12 @@ public class Estudiante {
 
 }
 
-        // metodo calcular nota promedio de los estudiantes de 3 semestre y a un progrmama academico
-        public double calcularPromedioNota3 ( int [] e){
-            if (semestre = 3) {
-            return = ;
-
-            } else {
-                
-            }
-
-
-        }
-
-
-    
 
     @Override
     public String toString() {
         return "Estudiante [nombre=" + nombre + ", semestre=" + semestre + ", programa=" + programa + ", notaPromedio="
                 + notaPromedio + ", edad=" + edad + "]";
     }
-
-
 
 
 }
