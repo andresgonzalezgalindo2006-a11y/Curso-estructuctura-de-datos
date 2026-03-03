@@ -16,6 +16,11 @@ public class  TallerInventario {
 
         System.out.println("\nOrdenado por precio (descendente):");
         inventario.ordenarPorPrecioDescendente();
-        inventario.mostrarInventario(); // ahora sí verás la lista ordenada
+        inventario.mostrarInventario(); 
+
+
+        System.out.println("\nOrdenado por precio (ascendente):");
+        inventario.ordenarPorPrecioeasendente();
+        inventario.mostrarInventario(); 
     }
 }

@@ -92,6 +92,26 @@ public class Inventario {
         }
     }
 
+
+ // Ordenar por precio ascendente 
+    public void ordenarPorPrecioeasendente() {
+
+        for (int i = 0; i <contador - 1; i++) {
+            for (int j = 0; j < contador - 1 - i; j++) {
+
+                if (productos[j].getPrecio() < productos[j + 1].getPrecio()) {
+
+                    // Intercambio
+                    Producto temp = productos[j];
+                    productos[j] = productos[j + 1];
+                    productos[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+
+
     // Método para mostrar inventario
     public void mostrarInventario() {
         for (int i = 0; i < contador; i++) {
