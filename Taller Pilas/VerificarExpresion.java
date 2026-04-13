@@ -1,4 +1,4 @@
-package Taller Pilas;
+
 import java.util.Stack;
 import java.util.Scanner;
 
@@ -33,23 +33,19 @@ public class VerificarExpresion {
         return pila.isEmpty();
     }
 
- 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Ingrese una expresión:");
+        String expresion = sc.nextLine();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (estaEquilibrado(expresion)) {
+            System.out.println("La expresión está equilibrada.");
+        } else {
+            System.out.println("La expresión NO está equilibrada.");
+        }
+    }
+    
 
 
 }
