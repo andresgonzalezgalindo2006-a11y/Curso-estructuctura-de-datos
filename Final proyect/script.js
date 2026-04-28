@@ -1,4 +1,7 @@
 const apiKey = "4a9a5554";
+const modal = document.getElementById("modal");
+const subtitulo = document.getElementById("subtitulo");
+const titulo = document.getElementById("titulo");
 
 function searchMovies() {
   const query = document.getElementById("search").value;
@@ -19,7 +22,8 @@ function searchMovies() {
             <h3>${movie.Title}</h3>
             <p>${movie.Year}</p>
           `;
-
+          subtitulo.innerText = "Resultados"
+         titulo.style.margin = "40px 0 0"
           movieEl.onclick = () => getMovieDetails(movie.imdbID);
 
           moviesDiv.appendChild(movieEl);
@@ -47,17 +51,17 @@ function getMovieDetails(id) {
         <p><strong>Plot:</strong> ${movie.Plot}</p>
       `;
 
-      document.getElementById("modal").style.display = "flex";
+      modal.style.display = "flex";
     });
 }
 
 function closeModal() {
-  document.getElementById("modal").style.display = "none";
+  modal.style.display = "none";
 }
 
 const populares = ["Dexter", "jujutsu kaisen", "Kimetsu no Yaiba", "Death Note"];
 
-window.onload = function() {
+window.onload = function () {
   populares.forEach(titulo => {
     fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${titulo}`)
       .then(res => res.json())
