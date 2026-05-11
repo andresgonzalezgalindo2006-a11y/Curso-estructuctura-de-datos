@@ -1,0 +1,23 @@
+import java.util.HashMap;
+
+
+public class Main {
+
+   
+    public static void main(String[] args) {
+        
+        
+        HasMap< String, Sting> mapaDePaises = new HasMap <>();
+        
+
+        mapaDePaises.put("España", "Madrid");
+        mapaDePaises.put("Francia", "París");
+        mapaDePaises.put("Italia", "Roma");
+
+
+        System.out.println(mapaDePaises); // Devuelve "{España=Madrid, Francia=París, Italia=Roma}"
+        String capital = mapaDePaises.get("Francia");
+        
+    }
+    
+}
