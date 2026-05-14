@@ -54,12 +54,12 @@ public class InterfazRecepcionista {
             System.out.println("║  3. Buscar paciente por documento     ║");
             System.out.println("║  4. Historial básico del paciente     ║");
             System.out.println("╠══════════════════════════════════════╣");
-            System.out.println("║  ── MÓDULO TURNOS (HU6–HU10) ──       ║");
+            System.out.println("║  ── MÓDULO TURNOS ──                  ║");
             System.out.println("║  5. Asignar turno (HU6)               ║");
-            System.out.println("║  6. Registrar abandono sala (HU7)     ║");
-            System.out.println("║  7. Ver sala de espera (HU8)          ║");
-            System.out.println("║  8. Llamar siguiente paciente (HU9)   ║");
-            System.out.println("║  9. Registrar urgencia (HU10)         ║");
+            System.out.println("║  6. Registrar abandono sala           ║");
+            System.out.println("║  7. Ver sala de espera                ║");
+            System.out.println("║  8. Llamar siguiente paciente         ║");
+            System.out.println("║  9. Registrar urgencia                ║");
             System.out.println("╠══════════════════════════════════════╣");
             System.out.println("║  0. Salir                             ║");
             System.out.println("╚══════════════════════════════════════╝");
@@ -69,17 +69,26 @@ public class InterfazRecepcionista {
 
             switch (opcion) {
 
-                case 1 -> menuRegistrarPaciente();
-                case 2 -> menuActualizarPaciente();
-                case 3 -> menuBuscarPaciente();
-                case 4 -> menuHistorialBasico();
-                case 5 -> menuAsignarTurno();
-                case 6 -> menuRegistrarAbandono();
-                case 7 -> menuVerSalaEspera();
-                case 8 -> menuLlamarSiguiente();
-                case 9 -> menuRegistrarUrgencia();
-                case 0 -> System.out.println("Saliendo del sistema...");
-                default -> System.out.println("Opción inválida.");
+                case 1 : menuRegistrarPaciente();
+                break;
+                case 2 : menuActualizarPaciente();
+                break;
+                case 3 : menuBuscarPaciente();
+                break;
+                case 4 : menuHistorialBasico();
+                break;
+                case 5 : menuAsignarTurno();
+                break;
+                case 6 : menuRegistrarAbandono();
+                break;
+                case 7 : menuVerSalaEspera();
+                break;
+                case 8 : menuLlamarSiguiente();
+                break;
+                case 9 : menuRegistrarUrgencia();
+                break;
+                case 0 : System.out.println("Saliendo del sistema...");
+                default : System.out.println("Opción inválida.");
 
             }
 

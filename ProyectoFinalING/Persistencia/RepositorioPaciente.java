@@ -1,28 +1,60 @@
 package ProyectoFinalING.Persistencia;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
 import ProyectoFinalING.Modelo.Paciente;
+
 public class RepositorioPaciente {
 
-    private List<Paciente> pacientes;
+    private Map<String, Paciente> pacientes;
 
     public RepositorioPaciente() {
-        this.pacientes = new ArrayList<>();
-        
+
+        this.pacientes = new HashMap<>();
+
     }
-        
-        public boolean ExisteporDocumento(String documento) {
-            for (Paciente paciente : pacientes) {
-                if (paciente.getCedula().equals(documento)) {
-                    return true;
-                }
-            }
+
+    // Validar existencia
+    public boolean ExisteporDocumento(String documento) {
+
+        return pacientes.containsKey(documento);
+
+    }
+
+    // Guardar
+    public void guardarPaciente(Paciente paciente) {
+
+        pacientes.put(
+                paciente.getCedula(),
+                paciente);
+
+    }
+
+    // Buscar
+    public Paciente buscarPorCedula(String cedula) {
+
+        return pacientes.get(cedula);
+
+    }
+
+    // Actualizar
+    public boolean actualizarPaciente(String cedula,
+            String nuevoNombre,
+            String nuevoTelefono) {
+
+        Paciente paciente = pacientes.get(cedula);
+
+        if (paciente == null) {
+
             return false;
+
         }
 
-       public void guardarPaciente(Paciente paciente) {
-     
-            pacientes.add(paciente);
-       }
+        paciente.setNombre(nuevoNombre);
+        paciente.setTelefono(nuevoTelefono);
+
+        return true;
+    }
+
 }
