@@ -51,7 +51,7 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    // Lógica para registrar estudiante
+                    RegistrarEstudiante();
                     break;
                 case 2:
                     // Lógica para buscar estudiante por ID
@@ -129,7 +129,7 @@ public class Menu {
     }
 
 
-    private void RegistrarEstudiante() {
+    private static void RegistrarEstudiante() {
         System.out.println("Ingrese el nombre del estudiante:");
         String nombre = scanner.nextLine();
         System.out.println("Ingrese el ID del estudiante:");
