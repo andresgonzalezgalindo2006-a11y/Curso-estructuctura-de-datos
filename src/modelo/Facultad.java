@@ -1,15 +1,14 @@
-package src.modelo;
+package modelo;
 
 public class Facultad {
     private String nombre;
-    private String decano;
     private int codigo;
 
 
     
-    public Facultad(String nombre, String decano, int codigo) {
+    public Facultad(String nombre, int codigo) {
         this.nombre = nombre;
-        this.decano = decano;
+        
         this.codigo = codigo;
     }
 
@@ -27,15 +26,6 @@ public class Facultad {
 
 
 
-    public String getDecano() {
-        return decano;
-    }
-
-
-
-    public void setDecano(String decano) {
-        this.decano = decano;
-    }
 
 
 
@@ -50,7 +40,10 @@ public class Facultad {
     }
 
 
-
+ @Override
+    public String toString() {
+        return codigo + " - " + nombre;
+    }
     
     
 }

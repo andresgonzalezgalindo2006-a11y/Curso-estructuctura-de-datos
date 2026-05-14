@@ -1,4 +1,4 @@
-package src.modelo;
+package modelo;
 
 public abstract class Persona {
     private String nombre;
