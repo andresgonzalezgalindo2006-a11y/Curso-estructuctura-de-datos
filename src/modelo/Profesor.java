@@ -7,7 +7,9 @@ public class Profesor extends Persona {
     private double salario;
 
     public Profesor(
-          
+            String nombre,
+            String id,
+            String email,
             String departamento,
             double salario) {
 
