@@ -55,7 +55,7 @@ public class InterfazRecepcionista {
             System.out.println("║  4. Historial básico del paciente     ║");
             System.out.println("╠══════════════════════════════════════╣");
             System.out.println("║  ── MÓDULO TURNOS ──                  ║");
-            System.out.println("║  5. Asignar turno (HU6)               ║");
+            System.out.println("║  5. Asignar turno                     ║");
             System.out.println("║  6. Registrar abandono sala           ║");
             System.out.println("║  7. Ver sala de espera                ║");
             System.out.println("║  8. Llamar siguiente paciente         ║");
