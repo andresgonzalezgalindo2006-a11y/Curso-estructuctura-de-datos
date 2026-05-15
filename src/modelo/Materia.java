@@ -11,7 +11,7 @@ public class Materia {
     private int cupoMaximo;
     private int cupoActual;
 
-    private LinkedList<Materia> prerequisitos;
+    private LinkedList<Materia> preRequisitos;
     private Queue<Estudiante> colaEspera;
 
     public Materia(String codigo, String nombre, int creditos, int cupoMaximo) {

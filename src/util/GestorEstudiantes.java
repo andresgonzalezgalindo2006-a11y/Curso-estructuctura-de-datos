@@ -4,7 +4,7 @@ import modelo.Estudiante;
 import java.util.HashMap;
 
 public class GestorEstudiantes {
-    private HashMap<String, Estudiante> estudiantes;
+    private HashMap<Integer, Estudiante> estudiantes;
 
     public GestorEstudiantes() {
         this.estudiantes = new HashMap<>();
@@ -16,12 +16,12 @@ public class GestorEstudiantes {
         estudiantes.put(e.getId(), e);
     }
 
-    public Estudiante buscar(String id) {
+    public Estudiante buscar(int id) {
 
         return estudiantes.get(id);
     }
 
-    public void eliminar(String id) {
+    public void eliminar(int id) {
 
         estudiantes.remove(id);
     }

@@ -6,7 +6,7 @@ public class Profesor extends Persona {
 
     public Profesor(
             String nombre,
-            String id,
+            int id,
             String email,
             String departamento) {
 

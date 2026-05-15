@@ -1,10 +1,13 @@
 package principal;
 
 import java.util.Scanner;
+import util.GestorEstudiantes;
+import modelo.Estudiante;
 
 public class Menu {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static GestorEstudiantes gestor = new GestorEstudiantes();
 
     public static void mostrarMenu() {
         int opcion = 0;
@@ -45,7 +48,7 @@ public class Menu {
             System.out.println("║   21. Procesar archivo CSV                               ║");
             System.out.println("║  ── SALIR──                                              ║");
             System.out.println("║   22. Salir                                              ║");
-            System.out.println("║   Seleccione una opcion                                  ║");
+            System.out.println("║   Seleccione una opcion:                                 ║");
             System.out.println("╚══════════════════════════════════════════════════════════╝");
 
             opcion = scanner.nextInt();
@@ -57,14 +60,13 @@ public class Menu {
                     break;
 
                 case 2:
-                    // Lógica para buscar estudiante por ID
+                    buscarEstudiante();
                     break;
-                // ... otros casos
                 case 3:
-                    // MenuregistrarPaciente();
+                    gestor.listar();
                     break;
                 case 4:
-                    // MenuActualizarInformacionPaciente();
+                    eliminarEstudiante();
                     break;
                 case 5:
                     // MenuBuscarPaciente();
@@ -97,7 +99,6 @@ public class Menu {
                 case 14:
                     // Lógica para buscar estudiante por ID
                     break;
-                // ... otros casos
                 case 15:
                     // MenuregistrarPaciente();
                     break;
@@ -116,13 +117,10 @@ public class Menu {
                 case 20:
                     // Lógica para buscar estudiante por ID
                     break;
-                // ... otros casos
                 case 21:
 
                     System.out.println(
                             "Funcionalidad BONUS no implementada.");
-
-                    break;
                     break;
 
                 case 22:
@@ -147,8 +145,33 @@ public class Menu {
         int semestre = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
 
-        // Aquí se podría agregar lógica para crear un nuevo objeto Estudiante y
-        // guardarlo en una lista o base de datos
+        Estudiante e = new Estudiante(nombre, id, email, semestre);
+        gestor.registrar(e);
+        System.out.println("Estudiante registrado exitosamente.");
     }
+
+    private static void buscarEstudiante() {
+        System.out.println("Ingrese el ID del estudiante a buscar:");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        Estudiante e = gestor.buscar(id);
+        if (e != null) {
+            e.mostrarInformacion();
+        } else {
+            System.out.println("Estudiante no encontrado.");
+        }
+    }
+
+    private static void eliminarEstudiante() {
+        System.out.println("Ingrese el ID del estudiante a eliminar:");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        gestor.eliminar(id);
+        System.out.println("Estudiante eliminado exitosamente.");
+    }
+
+    
 
 }
