@@ -1,10 +1,11 @@
-package src.principal;
+package principal;
 
 import java.util.Scanner;
 
 public class Menu {
-     
+
     private static Scanner scanner = new Scanner(System.in);
+
     public static void mostrarMenu() {
         int opcion = 0;
 
@@ -41,6 +42,7 @@ public class Menu {
             System.out.println("║  19. Deshacer última acción                              ║");
             System.out.println("║  20. Rehacer ultima operacion                            ║");
             System.out.println("║   ── PROCESAMIENTO POR LOTES ──                          ║");
+            System.out.println("║   21. Procesar archivo CSV                               ║");
             System.out.println("║  ── SALIR──                                              ║");
             System.out.println("║   22. Salir                                              ║");
             System.out.println("║   Seleccione una opcion                                  ║");
@@ -53,6 +55,7 @@ public class Menu {
                 case 1:
                     RegistrarEstudiante();
                     break;
+
                 case 2:
                     // Lógica para buscar estudiante por ID
                     break;
@@ -115,7 +118,11 @@ public class Menu {
                     break;
                 // ... otros casos
                 case 21:
-                    // MenuregistrarPaciente();
+
+                    System.out.println(
+                            "Funcionalidad BONUS no implementada.");
+
+                    break;
                     break;
 
                 case 22:
@@ -127,7 +134,6 @@ public class Menu {
         } while (opcion != 22);
 
     }
-
 
     private static void RegistrarEstudiante() {
         System.out.println("Ingrese el nombre del estudiante:");
@@ -141,7 +147,8 @@ public class Menu {
         int semestre = scanner.nextInt();
         scanner.nextLine(); // Limpiar el buffer
 
-        // Aquí se podría agregar lógica para crear un nuevo objeto Estudiante y guardarlo en una lista o base de datos
+        // Aquí se podría agregar lógica para crear un nuevo objeto Estudiante y
+        // guardarlo en una lista o base de datos
     }
 
 }
