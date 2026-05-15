@@ -7,6 +7,7 @@ public class Materia {
     private String codigo;
     private String nombre;
     private int creditos;
+
     private int cupoMaximo;
     private int cupoActual;
 
@@ -29,30 +30,38 @@ public class Materia {
         return codigo;
     }
 
-    private boolean tieneCupo() {
-        return cupoActual < cupoMaximo;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void aumentarCupoActual() {
-        cupoActual++;
+    public int getCupoActual() {
+        return cupoActual;
     }
 
-    public void disminuirCupoActual() {
-        cupoActual--;
+    public int getCupoMaximo() {
+        return cupoMaximo;
+    }
+
+    public Queue<Estudiante> getColaEspera() {
+        return colaEspera;
     }
 
     public LinkedList<Materia> getPreRequisitos() {
         return preRequisitos;
     }
-    public Queue<Estudiante> getColaEspera() {
-        return colaEspera;
+
+    public boolean tieneCupo() {
+
+        return cupoActual < cupoMaximo;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public void ocuparCupo() {
+
+        cupoActual++;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void liberarCupo() {
+
+        cupoActual--;
     }
 }

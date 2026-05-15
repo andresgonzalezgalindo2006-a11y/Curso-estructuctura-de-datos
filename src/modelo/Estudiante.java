@@ -7,16 +7,17 @@ public class Estudiante extends Persona {
     // Matriz para almacenar las calificaciones de cada semestre
     private Double[][] notas;
     // Lista para almacenar el historial de materias cursadas por el estudiante
-    private LinkedList<Materia> historialMaterias;
+    private LinkedList<Materia> historial;
 
     // Constructor que llama al constructor de la clase padre y además inicializa los atributos propios de Estudiante
     public Estudiante(String nombre, int id, String email, int semestre) {
         super(nombre, id, email);
+
         this.semestre = semestre;
         // son 10 semestres x 20 materias
         this.notas = new Double[10][20];
 
-        this.historialMaterias = new LinkedList<>();
+        this.historial = new LinkedList<>();
     }
 
     public Double[][] getNotas() {
@@ -27,12 +28,12 @@ public class Estudiante extends Persona {
         this.notas = notas;
     }
 
-    public LinkedList<Materia> getHistorialMaterias() {
-        return historialMaterias;
+    public LinkedList<Materia> getHistorial() {
+        return historial;
     }
 
-    public void setHistorialMaterias(LinkedList<Materia> historialMaterias) {
-        this.historialMaterias = historialMaterias;
+    public void setHistorial(LinkedList<Materia> historial) {
+        this.historial = historial;
     }
 
     public int getSemestre() {
