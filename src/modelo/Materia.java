@@ -3,6 +3,10 @@ package modelo;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * Representa una materia del sistema universitario. Usa LinkedList para
+ * pre-requisitos e historial, y Queue para cola de espera.
+ */
 public class Materia {
 
     private String codigo;
@@ -11,9 +15,13 @@ public class Materia {
 
     private int cupoMaximo;
     private int cupoActual;
-
+    /**
+     * Pre-requisitos: lista enlazada de otras materias
+     */
     private LinkedList<Materia> preRequisitos;
-
+    /**
+     * Cola de espera cuando el cupo está lleno
+     */
     private Queue<Estudiante> colaEspera;
 
     public Materia(
@@ -65,4 +73,9 @@ public class Materia {
     public Queue<Estudiante> getColaEspera() {
         return colaEspera;
     }
+
+    public void agregarPreRequisito(Materia m) {
+        preRequisitos.add(m);
+    }
+
 }

@@ -2,6 +2,7 @@ package principal;
 
 import modelo.Aula;
 import modelo.Estudiante;
+import modelo.Facultad;
 import modelo.Materia;
 
 import util.GestorDeshacer;
@@ -12,12 +13,10 @@ import util.GestorRutas;
 
 import java.util.Scanner;
 
-import excepciones.EstudianteNoEncontradoException;
-
 public class Menu {
 
     private final Scanner scanner;
-
+    // ── Gestores del sistema ───────────────
     private final GestorEstudiantes gestorEstudiantes;
 
     private final GestorMaterias gestorMaterias;
@@ -42,9 +41,25 @@ public class Menu {
         inicializarCampus();
     }
 
+
+     /**
+     * Arreglo estático de facultades (tamaño fijo = 5, requisito del proyecto).
+     */
+    private static final Facultad[] facultades = {
+        new Facultad("Ciencias del deporte", 1),
+        new Facultad("Trabajo social", 2),
+        new Facultad("Ingenieria civil", 3),
+        new Facultad("Ingeniería de Sistemas", 4),
+        new Facultad("Ingenieria electrica", 5)
+    };
+
     public void mostrarMenu() {
 
         System.out.println();
+        System.out.println("Facultades disponibles:");
+        for (Facultad facultad : facultades) {
+            System.out.println("  " + facultad);
+        }
         System.out.println("╔══════════════════════════════════════════════════════════╗");
         System.out.println("║                     MENÚ PRINCIPAL                       ║");
         System.out.println("╠══════════════════════════════════════════════════════════╣");
@@ -133,8 +148,8 @@ public class Menu {
                 crearMateria();
                 break;
             case 6:
-                // agregarPreRequisito();
-                System.out.println("No implementado");
+                agregarPreRequisito();
+  
                 break;
             case 7:
                 // mostrarPreRequisitos();
@@ -224,9 +239,11 @@ public class Menu {
 
         gestorDeshacer.registrar(
                 "Registrar estudiante");
+
+        System.out.println("Estudiante registrado exitosamente.");       
     }
 
-    private void buscarEstudiante() throws EstudianteNoEncontradoException {
+    private void buscarEstudiante() {
 
         System.out.print("Ingrese ID del estudiante a buscar: ");
 
@@ -239,7 +256,7 @@ public class Menu {
 
             e.mostrarInformacion();
         } else {
-            throw new EstudianteNoEncontradoException("Estudiante no encontrado");
+            System.out.println("Estudiante no encontrado.");
         }
     }
 
@@ -248,7 +265,7 @@ public class Menu {
         gestorEstudiantes.listar();
     }
 
-    private void eliminarEstudiante() throws EstudianteNoEncontradoException {
+    private void eliminarEstudiante() {
         System.out.println("Ingrese el ID del estudiante a eliminar:");
         int id = Integer.parseInt(scanner.nextLine());
 
@@ -258,7 +275,7 @@ public class Menu {
             gestorEstudiantes.eliminar(id);
             System.out.println("Estudiante eliminado exitosamente.");
         } else {
-            throw new EstudianteNoEncontradoException("EL estudiante que desea eliminar no fue encontrado");
+            System.out.println("Estudiante no encontrado.");
         }
     }
 
@@ -287,6 +304,18 @@ public class Menu {
                 materia);
     }
 
+    private void agregarPreRequisito(){
+        System.out.print("Código de la materia: ");
+        String codigoMateria = scanner.nextLine();
+
+        System.out.print("Código del pre-requisito: ");
+        String codigoPreRequisito = scanner.nextLine();
+
+        gestorMaterias.agregarPreRequisito(
+                codigoMateria,
+                codigoPreRequisito);
+    }
+
     private void inscribirMateria() {
 
         System.out.print("ID estudiante: ");
@@ -296,16 +325,23 @@ public class Menu {
 
         Estudiante estudiante = gestorEstudiantes.buscar(id);
 
+        if (estudiante == null) {
+            System.out.println("Estudiante no encontrado.");
+            return;
+        }
+
         System.out.print("Código materia: ");
 
         String codigo = scanner.nextLine();
 
-        gestorMaterias.inscribir(
+        boolean inscrito = gestorMaterias.inscribir(
                 estudiante,
                 codigo);
 
-        gestorDeshacer.registrar(
-                "Inscripción");
+        if (inscrito) {
+            gestorDeshacer.registrar(
+                    "Inscripción");
+        }
     }
 
     private void reservarHorario() {
