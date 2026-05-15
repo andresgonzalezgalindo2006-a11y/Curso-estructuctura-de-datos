@@ -37,4 +37,8 @@ public class GestorEstudiantes {
             System.out.println("----------------");
         }
     }
+
+    public void crearMateria(String nombre, String codigo, int creditos, int cupoMaximo) {
+        
+    }
 }

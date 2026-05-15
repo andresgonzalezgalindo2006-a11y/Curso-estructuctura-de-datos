@@ -4,37 +4,47 @@ import java.util.Stack;
 
 public class GestorDeshacer {
 
-    private Stack<String> pilaDeshacer;
+    private Stack<String> deshacer;
 
-    private Stack<String> pilaRehacer;
+    private Stack<String> rehacer;
 
     public GestorDeshacer() {
 
-        pilaDeshacer = new Stack<>();
+        deshacer = new Stack<>();
 
-        pilaRehacer = new Stack<>();
+        rehacer = new Stack<>();
     }
 
-    public void registrar(String operacion) {
+    public void registrar(String accion) {
 
-        pilaDeshacer.push(operacion);
+        deshacer.push(accion);
+
+        rehacer.clear();
     }
 
     public void deshacer() {
 
-        if (!pilaDeshacer.isEmpty()) {
+        if (!deshacer.isEmpty()) {
 
-            pilaRehacer.push(
-                    pilaDeshacer.pop());
+            String accion = deshacer.pop();
+
+            rehacer.push(accion);
+
+            System.out.println(
+                    "Deshecha: " + accion);
         }
     }
 
     public void rehacer() {
 
-        if (!pilaRehacer.isEmpty()) {
+        if (!rehacer.isEmpty()) {
 
-            pilaDeshacer.push(
-                    pilaRehacer.pop());
+            String accion = rehacer.pop();
+
+            deshacer.push(accion);
+
+            System.out.println(
+                    "Rehecha: " + accion);
         }
     }
 }
