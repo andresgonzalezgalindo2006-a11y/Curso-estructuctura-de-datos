@@ -1,15 +1,17 @@
 package util;
 
 import modelo.Estudiante;
+
 import java.util.HashMap;
 
 public class GestorEstudiantes {
+
     private HashMap<Integer, Estudiante> estudiantes;
 
     public GestorEstudiantes() {
-        this.estudiantes = new HashMap<>();
-    }
 
+        estudiantes = new HashMap<>();
+    }
 
     public void registrar(Estudiante e) {
 
@@ -31,6 +33,8 @@ public class GestorEstudiantes {
         for (Estudiante e : estudiantes.values()) {
 
             e.mostrarInformacion();
+
+            System.out.println("----------------");
         }
     }
 }

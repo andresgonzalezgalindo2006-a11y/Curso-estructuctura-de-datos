@@ -4,7 +4,7 @@ import modelo.Aula;
 
 public class GestorHorarios {
 
-    public void reservar(
+    public boolean reservar(
             Aula aula,
             int dia,
             int hora,
@@ -14,8 +14,18 @@ public class GestorHorarios {
 
         for (int i = hora; i < hora + duracion; i++) {
 
+            if (h[dia][i]) {
+
+                return false;
+            }
+        }
+
+        for (int i = hora; i < hora + duracion; i++) {
+
             h[dia][i] = true;
         }
+
+        return true;
     }
 
     public void liberar(
@@ -30,5 +40,13 @@ public class GestorHorarios {
 
             h[dia][i] = false;
         }
+    }
+
+    public boolean disponible(
+            Aula aula,
+            int dia,
+            int hora) {
+
+        return !aula.getHorario()[dia][hora];
     }
 }

@@ -69,7 +69,7 @@ public class Menu {
                     eliminarEstudiante();
                     break;
                 case 5:
-                    // MenuBuscarPaciente();
+                    // MenuCrearMateria();
                     break;
                 case 6:
                     // MenuVisualizarHistorialBasico();
@@ -173,5 +173,7 @@ public class Menu {
     }
 
     
-
+    private static void MenuCrearMateria() {
+        
+    }
 }
